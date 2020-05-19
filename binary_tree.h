@@ -1,4 +1,9 @@
-//SOLUTION
+/* 
+ * File: binary_tree.h
+ * Description: This header file declares the Binary_tree class.
+ * Author: Ian Sanchez Munoz
+ * Email: ians2913@student.vvc.edu
+ */
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 
@@ -40,7 +45,24 @@ public:
     */
     Binary_tree(string root_data, Binary_tree left, Binary_tree right);
 
+    /**
+       Sets data to the specified node
+       @param steps the path to take to reach the specified root
+       @param root_data the data for the root
+       @param left the left subtree
+       @param right the right subtree
+    */
+    void set(string steps, string root_data, Binary_tree left, Binary_tree right);
 
+    /**
+       Sets data to the specific node
+       @param n the current node
+       @param steps the path to take to reach the specified root
+       @param left the left subtree
+       @param right the right subtree
+    */
+    void set(Node* n, string steps, string root_data, Binary_tree left, Binary_tree right);
+    
     /**
        Returns the height of this tree.
        @return the height
@@ -83,6 +105,3 @@ private:
 };
 
 #endif
-
-
-

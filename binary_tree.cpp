@@ -1,4 +1,9 @@
-//SOLUTION
+/*
+ * File: binary_tree.cpp
+ * Description: This program implements the Binary_tree class.
+ * Author: Ian Sanchez Munoz
+ * Email: ians2913@student.vvc.edu
+ */
 #include <algorithm>
 #include "binary_tree.h"
 
@@ -23,6 +28,27 @@ Binary_tree::Binary_tree(string root_data, Binary_tree left, Binary_tree right)
     root->data = root_data;
     root->left = left.root;
     root->right = right.root;
+}
+
+void Binary_tree::set(string steps, string root_data, Binary_tree left, Binary_tree right)
+{
+    set(root, steps, root_data, left, right);
+}
+
+void Binary_tree::set(Node* n, string steps, string root_data, Binary_tree left, Binary_tree right)
+{
+    if (steps.length() == 0)
+    {
+	n->data = root_data;
+	n->left = left.root;
+	n->right = right.root;
+    }
+    else
+    {
+	char direction = steps[0];
+	steps.erase(0, 1);
+	set(direction == '1' ? n-> left : n->right, steps, root_data, left, right);
+    }
 }
 
 int Binary_tree::height(const Node* n) const
